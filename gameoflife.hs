@@ -6,8 +6,8 @@ type Grid = [Cell]
 
 next :: Grid -> Grid
 next [] = []
-next grid = filter ((\count -> count == 2 || count == 3) . neighbourCount grid) grid 
--- next grid = filter (((flip elem) [2,3]) . neighbourCount grid) grid 
+next grid = filter ((\count -> count == 2 || count == 3) . neighbourCount grid) grid
+-- next grid = filter (((flip elem) [2,3]) . neighbourCount grid) grid
 
 neighbourCount :: Grid -> Cell-> Int
 neighbourCount grid (x,y) = length (filter (isNeighbour (x,y)) grid)
@@ -22,8 +22,8 @@ allNeighbours cell@(x,y) = filter (\c -> c /= cell) all
 
 main :: IO ()
 main = hspec $ do
-  describe "allNeighbours" $ 
-    it "returns all neighbours" $ 
+  describe "allNeighbours" $
+    it "returns all neighbours" $
       allNeighbours (1,3) `shouldBe` [(0,2),(0,3),(0,4),(1,2),(1,4),(2,2),(2,3),(2,4)]
 
   describe "isNeighbour" $ do

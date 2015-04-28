@@ -1,6 +1,6 @@
 import qualified Data.Map as Map
 
-myLast :: [a] -> a 
+myLast :: [a] -> a
 myLast [] = error "empty list does not have a last element!"
 myLast [x] = x
 myLast (x : xs) = myLast xs
@@ -40,12 +40,12 @@ isPalindrome (x : xs) = (x == myLast xs) && (isPalindrome (allButLast xs))
 compress :: Eq a => [a] -> [a]
 -- compress [] = []
 -- compress [x] = [x]
--- compress (x1 : (x2 : xs)) 
+-- compress (x1 : (x2 : xs))
 --   | x1 == x2  = compress (x2 : xs)
 --   | otherwise = x1 : (compress (x2 : xs))
 --
 -- compress as = foldr appendMaybe [] as
---   where 
+--   where
 --     appendMaybe n [] = [n]
 --     appendMaybe n (x : xs) = if n == x then (x : xs) else (n : (x : xs))
 
